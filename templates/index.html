@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Feedback Portal</h1>
+
+        <form method="POST">
+            <input type="text" name="name" placeholder="Enter Name">
+            <textarea name="message" placeholder="Enter Feedback"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h2>Recent Feedback</h2>
+
+        {% for f in feedback %}
+            <div class="feedback">
+                <b>{{ f[0] }}:</b> {{ f[1] }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - name: Stop old container
+      shell: docker stop feedback-app || true
+
+    - name: Remove old container
+      shell: docker rm feedback-app || true
+
+    - name: Run new container
+      shell: docker run -d -p 5000:5000 --name feedback-app feedback-app
