@@ -1,10 +1,12 @@
 pipeline {
+pipeline {
     agent any
 
     stages {
+
         stage('Clone') {
             steps {
-                git 'https://github.com/<your-username>/<repo-name>.git'
+                git 'https://github.com/jyothsna-jarugulla/student-feedback-system.git'
             }
         }
 
@@ -19,5 +21,6 @@ pipeline {
                 sh 'ansible-playbook ansible/deploy.yml'
             }
         }
+
     }
 }
